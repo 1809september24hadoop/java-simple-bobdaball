@@ -28,15 +28,23 @@ public class JavaSimpleSolution implements JavaSimple {
 	@Override
 	public boolean isEven(int n) {
 		// TODO Auto-generated method stub
+		double doubleNum = n;
 		
+		double flooredNum = Math.floor(doubleNum);
 		
-		return false;
+		return doubleNum - flooredNum == 0 ? true : false;
 	}
 
 	@Override
 	public boolean isAllEven(int[] array) {
 		// TODO Auto-generated method stub
-		return false;
+		for (int i = 0; i < array.length; i++) {
+			int num = array[i];
+			if (!isEven(num)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -95,12 +103,40 @@ public class JavaSimpleSolution implements JavaSimple {
 	@Override
 	public int factorial(int n) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		int answer = 1;
+		
+		for (int counter = n; counter > 0; counter--) {
+			answer *= counter;
+		}
+		
+		return answer;
 	}
 
 	@Override
 	public int[] rotateLeft(int[] array, int n) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
+		
+		int actualSpin = n % array.length;
+		int restSize = array.length - actualSpin;
+		int[] partOne = new int[actualSpin];
+		int[] partTwo = new int[restSize];
+		
+		for (int i = 0; i < actualSpin; i++) {
+			partOne[i] = array[i];
+		}
+		
+		for (int i = 0; i < restSize; i++) {
+			partTwo[i] = array[restSize + i];
+		}
+		
+		for (int i = 0; i < array.length; i++) {
+			if (i < actualSpin) {
+				array[i] = partOne[i];
+			} else {
+				array[i] = partTwo[i - actualSpin];
+			}
+		}
 		return null;
 	}
 
