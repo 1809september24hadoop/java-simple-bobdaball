@@ -178,12 +178,12 @@ public class JavaSimpleSolution implements JavaSimple {
 		String answer = yes;
 		
 		
-		answer =  isEven(n) ? no : yes;
+		answer =  isEven(n) ? no : answer;
 		
-		answer = n % 3 == 0 || answer == no ? no : yes;
+		answer = n % 3 == 0 || answer == no ? no : answer;
 		
 		for (int i = 5; i * i <= n; i += 6) {
-			answer = (n % i == 0 || (i + 2) == 0 ) ? no : yes;
+			answer = (n % i == 0 || (i + 2) == 0 ) ? no : answer;
 		}
 
 		return answer;
