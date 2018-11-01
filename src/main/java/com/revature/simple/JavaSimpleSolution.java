@@ -1,6 +1,7 @@
 package com.revature.simple;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 //import org.apache.log4j.Logger;
 import com.revature.simple.JavaSimpleSolution;
@@ -12,10 +13,16 @@ public class JavaSimpleSolution implements JavaSimple {
 	public static void main(String[] args) {
 		JavaSimpleSolution jss = new JavaSimpleSolution();
 		
-		//		LOGGER.info(jss.fibonacci(4));
+		//	LOGGER.info(jss.fibonacci(4));
 		//	System.out.println(jss.factorial(3));
 		//	System.out.println(jss.isPrime(51));
-//			System.out.println(jss.balancedBrackets("(}]("));
+		//	System.out.println(jss.balancedBrackets("(}]("));
+		System.out.println(jss.divide(3.0, 2.0));
+		System.out.println(jss.isEven(2));
+		
+		int[] input = {4, 2, 1};
+		
+		System.out.println(jss.sort(input));
 	}
 	@Override
 	public int castToInt(double n) {
@@ -46,9 +53,11 @@ public class JavaSimpleSolution implements JavaSimple {
 		// TODO Auto-generated method stub
 		double doubleNum = n;
 		
-		double flooredNum = Math.floor(doubleNum);
 		
-		return doubleNum - flooredNum == 0 ? true : false;
+		double halfWay = (doubleNum / 2);
+		double flooredNum = Math.floor(halfWay);
+		
+		return halfWay - flooredNum == 0 ? true : false;
 	}
 
 	@Override
@@ -73,7 +82,7 @@ public class JavaSimpleSolution implements JavaSimple {
 			total += array[i];
 		}
 		double averageNum = array.length;
-		
+
 		return total / averageNum;
 	}
 
